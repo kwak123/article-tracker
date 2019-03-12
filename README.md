@@ -1,5 +1,5 @@
 # kwak-react
-Clean and simple React/Express boilerplate using Parcel.
+Simple Article Tracker to help me trace blogs to read
 
 ## Notes
 * Node must be >= 9.0.0
@@ -8,7 +8,7 @@ Clean and simple React/Express boilerplate using Parcel.
 Run commands
 1. `yarn install`
 2. `yarn react-dev`
-3. `npm start`
+3. `yarn start`
 
 Note, you will need to run yarn start in a new thread
 
