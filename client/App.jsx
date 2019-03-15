@@ -1,17 +1,12 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import Main from './components/Main.jsx';
+import React from 'react'
+import Main from './components/Main.jsx'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+  render () {
     return (
       <Main />
-    );
+    )
   }
 }
 
-export default App;
+export default App

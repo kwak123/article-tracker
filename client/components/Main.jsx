@@ -1,22 +1,13 @@
-import React from 'react';
-import T from 'prop-types';
+import React from 'react'
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+  render () {
     return (
       <div>
         <h1> Welcome! </h1>
       </div>
-    );
+    )
   }
 }
 
-Main.propTypes = {
-  // Fill in your types here
-};
-
-export default Main;
+export default Main

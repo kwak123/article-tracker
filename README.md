@@ -15,4 +15,4 @@ Note, you will need to run yarn start in a new thread
 Code away!
 
 ## TODOS:
-* Add eslint rules
+* Use SCSS (and loaders) eventually

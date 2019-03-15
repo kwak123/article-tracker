@@ -1,5 +1,8 @@
 {
-  "extends": "standard",
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
   "env": {
     "browser": true,
     "es6": true,
@@ -12,9 +15,6 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
   "rules": {
     "comma-dangle": ["error", "always-multiline"]
   }
