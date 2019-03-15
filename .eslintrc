@@ -17,6 +17,7 @@
   },
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
-    "brace-style": [2, "stroustrup"]
+    "brace-style": [2, "stroustrup"],
+    "react/prop-types": "off"
   }
 }

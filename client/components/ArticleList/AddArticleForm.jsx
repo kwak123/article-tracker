@@ -10,6 +10,7 @@ export default class AddArticleForm extends React.Component {
 
       // TODO: Implement tags
       tags: [],
+      showErrorMessage: false,
     }
 
     this.onChangeTitle = this.onChangeTitle.bind(this)
@@ -29,29 +30,44 @@ export default class AddArticleForm extends React.Component {
 
   onFormSubmit (event) {
     event.preventDefault()
-    console.log('submit')
+    this.props.handleFormSubmit(this.state)
+      .then(() => this.setState({
+        title: '',
+        link: '',
+        tags: [],
+        showErrorMessage: false,
+      }))
+      .catch(() => this.setState(() => ({ showErrorMessage: true })))
   }
 
   render () {
-    const { title, link } = this.state
+    const {
+      title,
+      link,
+      showErrorMessage,
+    } = this.state
 
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={this.onChangeTitle}
-          placeholder="title"
-        />
+      <div>
+        <form onSubmit={this.onFormSubmit}>
+          <input
+            type="text"
+            value={title}
+            onChange={this.onChangeTitle}
+            placeholder="title"
+          />
 
-        <input
-          type="text"
-          value={link}
-          onChange={this.onChangeLink}
-          placeholder="link"
-        />
-        <button onClick={this.onFormSubmit}>Add article</button>
-      </form>
+          <input
+            type="text"
+            value={link}
+            onChange={this.onChangeLink}
+            placeholder="link"
+          />
+          <button onClick={this.onFormSubmit}>Add article</button>
+        </form>
+
+        {showErrorMessage ? <p style={{ color: 'red' }}>Failed to add article</p> : null}
+      </div>
     )
   }
 }

@@ -10,18 +10,30 @@ export default class ArticleList extends React.Component {
     this.state = {
       articles: [],
     }
+    this.getArticles = this.getArticles.bind(this)
+    this.addArticle = this.addArticle.bind(this)
   }
 
   componentDidMount () {
+    return this.getArticles()
+  }
+
+  getArticles (article) {
     return api.getArticles()
       .then(articles => this.setState(() => ({ articles })))
+  }
+
+  addArticle (article) {
+    return api.addArticle(article)
+      .then(this.getArticles)
   }
 
   render () {
     const { articles } = this.state
 
     return (
-      <div>
+      <div className="article-list__container">
+        <h2 className="article-list__header">Articles</h2>
         <ul>
           {articles.map(({ id, title, link }) => (
             <li key={id}>
@@ -30,7 +42,9 @@ export default class ArticleList extends React.Component {
             </li>
           ))}
         </ul>
-        <AddArticleForm />
+        <AddArticleForm
+          handleFormSubmit={this.addArticle}
+        />
       </div>
     )
   }

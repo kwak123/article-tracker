@@ -1,0 +1,17 @@
+#app {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.main__container {
+  width: 1200px;
+}
+
+.main__header {
+  font-size: 64px;
+}
+
+.article-list__header {
+  font-size: 32px;
+}

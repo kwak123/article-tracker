@@ -5,8 +5,8 @@ import ArticleList from './ArticleList/ArticleList'
 class Main extends React.Component {
   render () {
     return (
-      <div>
-        <h1> Welcome! </h1>
+      <div className="main__container">
+        <h1 className="main__header">Article Tracker</h1>
         <ArticleList />
       </div>
     )

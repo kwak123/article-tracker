@@ -12,12 +12,11 @@ app.use(express.static(`${__dirname}/dist`))
 
 const articleValidator = (req, res, next) => {
   const {
-    id,
     title,
     link,
     tags,
   } = req.body
-  const fieldsToValidate = [id, title, link, tags]
+  const fieldsToValidate = [title, link, tags]
   // While acc is true, check to see field is truthy, otherwise, stay false
   const validArticle = fieldsToValidate.reduce((acc, el) => acc ? !!el : acc, true)
   if (validArticle) {
