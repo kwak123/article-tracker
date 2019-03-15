@@ -1,5 +1,7 @@
 import React from 'react'
 
+import AddArticleForm from './AddArticleForm'
+
 import api from '../../service/api'
 
 export default class ArticleList extends React.Component {
@@ -28,6 +30,7 @@ export default class ArticleList extends React.Component {
             </li>
           ))}
         </ul>
+        <AddArticleForm />
       </div>
     )
   }
