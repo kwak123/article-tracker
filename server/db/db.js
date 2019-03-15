@@ -10,8 +10,11 @@ const tempMockArticles = [
   },
 ]
 
+const getArticles = () => tempMockArticles
+
 const addArticle = article => tempMockArticles.push(article)
 
 module.exports = {
+  getArticles,
   addArticle,
 }

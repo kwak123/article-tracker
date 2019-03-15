@@ -16,3 +16,4 @@ Code away!
 
 ## TODOS:
 * Use SCSS (and loaders) eventually
+* Remove bodyparser
