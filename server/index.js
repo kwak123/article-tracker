@@ -10,10 +10,28 @@ app.use(logger)
 app.use(express.json())
 app.use(express.static(`${__dirname}/dist`))
 
+const articleValidator = (req, res, next) => {
+  const {
+    id,
+    title,
+    link,
+    tags,
+  } = req.body
+  const fieldsToValidate = [id, title, link, tags]
+  // While acc is true, check to see field is truthy, otherwise, stay false
+  const validArticle = fieldsToValidate.reduce((acc, el) => acc ? !!el : acc, true)
+  if (validArticle) {
+    return next()
+  }
+  else {
+    return res.status(400).send('Invalid article')
+  }
+}
+
 // Routes
 app.get('/api/articles', (req, res) => res.send(db.getArticles()))
 
-app.post('/api/articles', (req, res) => {
+app.post('/api/articles', articleValidator, (req, res) => {
   const article = req.body
   db.addArticle(article)
   return res.sendStatus(200)
