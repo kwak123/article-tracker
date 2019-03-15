@@ -17,3 +17,4 @@ Code away!
 ## TODOS:
 * Use SCSS (and loaders) eventually
 * Remove bodyparser
+* Change CSS rule to recognize new class properties
