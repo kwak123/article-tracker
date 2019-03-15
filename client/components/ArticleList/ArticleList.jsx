@@ -35,8 +35,8 @@ export default class ArticleList extends React.Component {
       <div className="article-list__container">
         <h2 className="article-list__header">Articles</h2>
         <ul>
-          {articles.map(({ id, title, link }) => (
-            <li key={id}>
+          {articles.map(({ _id, title, link }) => (
+            <li key={_id}>
               <p>{title}</p>
               <a href={link}>{link}</a>
             </li>

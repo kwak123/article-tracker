@@ -28,7 +28,8 @@ const articleValidator = (req, res, next) => {
 }
 
 // Routes
-app.get('/api/articles', (req, res) => res.send(db.getArticles()))
+app.get('/api/articles', (req, res) => db.getArticles()
+  .then(articles => res.send(articles)))
 
 app.post('/api/articles', articleValidator, (req, res) => {
   const article = req.body

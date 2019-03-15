@@ -6,18 +6,6 @@ mongoose.connect('mongodb://localhost/myapp')
   .then(() => console.log('connected to mongodb'))
   .catch(() => console.log('failed to connect db'))
 
-const tempMockArticles = [
-  {
-    // This is liable to change due to the way Mongo handles ids
-    id: 1,
-    title: 'Temp article',
-    link: 'www.google.com',
-    tags: [
-      'React',
-    ],
-  },
-]
-
 const seedArticleData = {
   title: 'Temp article',
   link: 'www.google.com',
@@ -27,21 +15,18 @@ const seedArticleData = {
 }
 
 const seedArticle = new Article(seedArticleData)
+
+// Clear then reseeed
 Article.deleteMany()
   .then(() => seedArticle.save())
-  .then(() => console.log(Article.find({})))
+  .then(() => Article.find({}))
+  .then(result => console.log(result))
 
-const getArticles = () => tempMockArticles
-
-let nextId = 2;
+const getArticles = () => Article.find({})
 
 const addArticle = (article) => {
-  tempMockArticles.push({
-    id: nextId,
-    ...article,
-  })
-
-  nextId += 1
+  const newArticle = new Article(article)
+  return newArticle.save()
 }
 
 module.exports = {

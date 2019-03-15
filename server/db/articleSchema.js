@@ -6,3 +6,5 @@ const articleSchema = new Schema({
   link: String,
   tags: [String],
 })
+
+module.exports = articleSchema
