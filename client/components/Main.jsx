@@ -2,6 +2,9 @@ import React from 'react'
 
 import ArticleList from './ArticleList/ArticleList'
 
+import '~/client/assets/main.scss'
+import '~/client/assets/app.scss'
+
 class Main extends React.Component {
   render () {
     return (
